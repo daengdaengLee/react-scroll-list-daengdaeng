@@ -9,10 +9,21 @@ class ScrollList extends Component {
 
   render() {
     const { _onScroll } = this;
-    const { list, containerStyle, perPage, fromIdx, renderItem } = this.props;
+    const {
+      list,
+      containerStyle,
+      perPage,
+      fromIdx,
+      innerRefContainer,
+      renderItem,
+    } = this.props;
     const currentPage = list.slice(fromIdx, fromIdx + perPage);
     return (
-      <div style={{ ...containerStyle, overflow: 'auto' }} onScroll={_onScroll}>
+      <div
+        ref={innerRefContainer}
+        style={{ ...containerStyle, overflow: 'auto' }}
+        onScroll={_onScroll}
+      >
         {currentPage.map(renderItem)}
       </div>
     );
@@ -37,6 +48,7 @@ ScrollList.defaultProps = {
   containerStyle: {},
   perPage: 10,
   fromIdx: 0,
+  innerRefContainer: el => {},
   onScroll: event => {},
   onScrollToTop: () => {},
   onScrollToBottom: () => {},
@@ -48,6 +60,7 @@ ScrollList.propTypes = {
   containerStyle: PropTypes.object,
   perPage: PropTypes.number,
   fromIdx: PropTypes.number,
+  innerRefContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   onScroll: PropTypes.func,
   onScrollToTop: PropTypes.func,
   onScrollToBottom: PropTypes.func,
