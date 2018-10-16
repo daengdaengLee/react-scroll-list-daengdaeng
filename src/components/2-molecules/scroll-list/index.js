@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const ScrollList = ({ list, containerStyle, perPage, pageIdx, renderItem }) => {
-  const currentPage = list.slice(pageIdx * perPage, (pageIdx + 1) * perPage);
-  return (
-    <div style={{ ...containerStyle, overflow: 'auto' }}>
-      {currentPage.map(renderItem)}
-    </div>
-  );
-};
+class ScrollList extends Component {
+  render() {
+    const { list, containerStyle, perPage, pageIdx, renderItem } = this.props;
+    const currentPage = list.slice(pageIdx * perPage, (pageIdx + 1) * perPage);
+    return (
+      <div style={{ ...containerStyle, overflow: 'auto' }}>
+        {currentPage.map(renderItem)}
+      </div>
+    );
+  }
+}
 
 ScrollList.defaultProps = {
   list: [],
