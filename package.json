@@ -1,0 +1,33 @@
+{
+  "name": "@daengdaenglee/react-scroll-list",
+  "version": "0.1.0",
+  "description": "React.js scrollable list component",
+  "main": "dist/index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files"
+  },
+  "keywords": [
+    "React.js",
+    "scroll",
+    "list"
+  ],
+  "author": "daengdaenglee",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^3.4.11",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.7.0",
+    "eslint-config-react-app": "^3.0.4",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
