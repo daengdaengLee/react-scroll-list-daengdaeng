@@ -1,4 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import Default from './default';
 
-storiesOf('test', module).add('test', () => <div>Hello World</div>);
+storiesOf('Basic', module).add('default', () => <Default />);
