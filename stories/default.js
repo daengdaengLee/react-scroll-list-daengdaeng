@@ -25,6 +25,7 @@ class Default extends Component {
         containerStyle={{
           width: '300px',
           height: '400px',
+          padding: '20px 0',
         }}
         innerRefContainer={_scroller}
         onScrollToTop={_onPrevPage}
@@ -48,6 +49,10 @@ class Default extends Component {
     );
   }
 
+  componentDidMount() {
+    this._scroller.current.scrollTop = 20;
+  }
+
   _onNextPage() {
     console.log('next page');
     let flag;
@@ -60,7 +65,7 @@ class Default extends Component {
       },
       () => {
         if (flag) {
-          this._scroller.current.scrollTop = 1;
+          this._scroller.current.scrollTop = 20;
         }
       },
     );
@@ -81,7 +86,7 @@ class Default extends Component {
           this._scroller.current.scrollTop =
             this._scroller.current.scrollHeight -
             this._scroller.current.clientHeight -
-            1;
+            20;
         }
       },
     );
