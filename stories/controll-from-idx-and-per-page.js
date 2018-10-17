@@ -4,7 +4,7 @@ import { ScrollList } from '../src';
 
 const dummy = _.range(50);
 
-class Default extends Component {
+class ControllFromIdxAndPerPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,16 +18,11 @@ class Default extends Component {
   render() {
     const { _scroller, _onNextPage, _onPrevPage } = this;
     const { fromIdx } = this.state;
+    const list = dummy.slice(fromIdx, fromIdx + 10);
     return (
       <ScrollList
-        list={dummy}
-        fromIdx={fromIdx}
-        perPage={10}
-        containerStyle={{
-          width: '300px',
-          height: '400px',
-          padding: '20px 0',
-        }}
+        list={list}
+        containerStyle={{ width: '300px', height: '400px', padding: '20px 0' }}
         innerRefContainer={_scroller}
         onScrollToTop={_onPrevPage}
         onScrollToBottom={_onNextPage}
@@ -94,4 +89,4 @@ class Default extends Component {
   }
 }
 
-export default Default;
+export default ControllFromIdxAndPerPage;

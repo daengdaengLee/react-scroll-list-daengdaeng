@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'underscore';
+import { _slice } from '../../../assets/js/utils';
+
+const _makeCurrentList = (list, fromIdx, perPage) => {
+  const toIdx =
+    _.isNull(perPage) || _.isNull(fromIdx) ? null : fromIdx + perPage;
+  return _slice(list, fromIdx, toIdx);
+};
 
 class ScrollList extends Component {
   constructor(props) {
@@ -17,14 +25,14 @@ class ScrollList extends Component {
       innerRefContainer,
       renderItem,
     } = this.props;
-    const currentPage = list.slice(fromIdx, fromIdx + perPage);
+    const currentList = _makeCurrentList(list, fromIdx, perPage);
     return (
       <div
         ref={innerRefContainer}
         style={{ ...containerStyle, overflow: 'auto' }}
         onScroll={_onScroll}
       >
-        {currentPage.map(renderItem)}
+        {currentList.map(renderItem)}
       </div>
     );
   }
@@ -46,8 +54,8 @@ class ScrollList extends Component {
 ScrollList.defaultProps = {
   list: [],
   containerStyle: {},
-  perPage: 10,
-  fromIdx: 0,
+  perPage: null,
+  fromIdx: null,
   innerRefContainer: el => {},
   onScroll: event => {},
   onScrollToTop: () => {},
