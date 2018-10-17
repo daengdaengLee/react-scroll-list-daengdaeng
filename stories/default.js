@@ -22,6 +22,7 @@ class Default extends Component {
       <ScrollList
         list={dummy}
         fromIdx={fromIdx}
+        perPage={10}
         containerStyle={{
           width: '300px',
           height: '400px',
