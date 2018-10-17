@@ -17,6 +17,7 @@
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@storybook/react": "^3.4.11",
     "babel-core": "^6.26.3",
@@ -37,6 +38,9 @@
   "babel": {
     "presets": [
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread"
     ]
   }
 }
