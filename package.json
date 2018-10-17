@@ -1,6 +1,6 @@
 {
   "name": "@daengdaenglee/react-scroll-list",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "React.js scrollable list component",
   "main": "dist/index.js",
   "scripts": {
